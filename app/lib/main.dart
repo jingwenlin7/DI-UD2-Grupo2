@@ -1,8 +1,5 @@
 import 'package:material_ui/material_ui.dart';
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
 void main() {
   runApp(const MyApp());
 }
@@ -15,11 +12,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Componentes',
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World'),
-        ),
-      )
+      home: Scaffold(body: Center(child: Text('Hello World'))),
     );
   }
 }
