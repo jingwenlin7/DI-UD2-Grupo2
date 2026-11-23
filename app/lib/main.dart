@@ -1,8 +1,4 @@
 import 'package:material_ui/material_ui.dart';
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 void main() {
   runApp(const MyApp());
 }
