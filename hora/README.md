@@ -33,7 +33,7 @@ Archivos:
 | `etiquetaHora` | `String` | `'Hora'` | Texto bajo la hora |
 | `etiquetaMinutos` | `String` | `'Minutos'` | Texto bajo los minutos |
 | `formato24h` | `bool` | `true` | Formato 24 h (`false` = 12 h con AM/PM) |
-| `colorPrincipal` | `Color` | `0xFF4062C8` | Color de la hora y del chip |
+| `colorPrincipal` | `Color` | `0xFF3B59B6` | Color del selector de hora y del chip |
 | `habilitado` | `bool` | `true` | Permite o bloquea la interacción |
 
 ## Eventos
@@ -67,6 +67,6 @@ SelectorHora(
 flutter test
 ```
 
-Hay 13 pruebas de widget: valores por defecto, textos personalizados, formato
-12 h/24 h, eventos `onChanged` y `onFormatoChanged`, cancelar el selector y
-estado deshabilitado.
+Hay 5 pruebas de widget: valores por defecto, chip de formato con
+`onFormatoChanged`, selector con `onChanged`, cancelar el selector y estado
+deshabilitado.

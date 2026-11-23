@@ -29,7 +29,7 @@ class SelectorHora extends StatefulWidget {
     this.etiquetaHora = 'Hora',
     this.etiquetaMinutos = 'Minutos',
     this.formato24h = true,
-    this.colorPrincipal = const Color(0xFF4062C8),
+    this.colorPrincipal = const Color(0xFF3B59B6),
     this.habilitado = true,
     this.onChanged,
     this.onFormatoChanged,
@@ -50,7 +50,7 @@ class SelectorHora extends StatefulWidget {
   /// Si es `true` se muestra en formato 24 h; si no, en 12 h con AM/PM.
   final bool formato24h;
 
-  /// Color de la caja de la hora y del chip de formato.
+  /// Color del selector de hora (diálogo) y del chip de formato.
   final Color colorPrincipal;
 
   /// Si es `false` no se puede cambiar la hora ni el formato.
@@ -92,13 +92,29 @@ class _SelectorHoraState extends State<SelectorHora> {
     final elegida = await showTimePicker(
       context: context,
       initialTime: _hora,
-      // Con el builder forzamos que el diálogo use el mismo formato (24 h o
-      // 12 h) que el chip de la tarjeta.
-      builder: (context, child) => MediaQuery(
-        data: MediaQuery.of(context)
-            .copyWith(alwaysUse24HourFormat: _formato24h),
-        child: child!,
-      ),
+      // Textos del diálogo en español (parámetros de showTimePicker).
+      helpText: 'ELIGE LA HORA',
+      cancelText: 'Cancelar',
+      confirmText: 'Aceptar',
+      hourLabelText: 'Hora',
+      minuteLabelText: 'Minutos',
+      errorInvalidText: 'Introduce una hora válida',
+      // Con el builder: 1) el diálogo usa el mismo formato (24 h o 12 h) que
+      // el chip y 2) los colores del diálogo usan el color principal.
+      builder: (context, child) {
+        final tema = Theme.of(context);
+        return Theme(
+          data: tema.copyWith(
+            colorScheme:
+                tema.colorScheme.copyWith(primary: widget.colorPrincipal),
+          ),
+          child: MediaQuery(
+            data: MediaQuery.of(context)
+                .copyWith(alwaysUse24HourFormat: _formato24h),
+            child: child!,
+          ),
+        );
+      },
     );
     // showTimePicker devuelve null si el usuario cancela -> no hacemos nada.
     // `mounted` evita usar el estado si el widget ya no está en pantalla.
@@ -152,14 +168,14 @@ class _SelectorHoraState extends State<SelectorHora> {
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Caja de la hora (color principal, texto blanco).
+                // Caja de la hora (fondo claro, igual que los minutos).
                 Expanded(
                   child: _Caja(
                     key: const Key('caja_hora'), // clave para los tests
                     valor: _textoHora,
                     etiqueta: widget.etiquetaHora,
-                    fondo: widget.colorPrincipal,
-                    colorTexto: Colors.white,
+                    fondo: const Color(0xFFEAEFFA),
+                    colorTexto: texto,
                     // Si está deshabilitado, onTap es null y no responde.
                     onTap: widget.habilitado ? _elegirHora : null,
                   ),
