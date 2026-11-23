@@ -10,8 +10,10 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:componentes/main.dart';
 
 void main() {
-  testWidgets('Shows Hello World', (WidgetTester tester) async {
+  testWidgets('Shows the appointment calendar', (WidgetTester tester) async {
     await tester.pumpWidget(const MyApp());
-    expect(find.text('Hello World'), findsOneWidget);
+    expect(find.text('Tu próxima visita'), findsOneWidget);
+    expect(find.text('Selecciona la fecha'), findsOneWidget);
+    expect(find.text('Mar, 17 de noviembre'), findsOneWidget);
   });
 }
