@@ -37,17 +37,12 @@ class MyApp extends StatelessWidget {
                 SizedBox(height: 4),
                 Text(
                   'Elige cuándo renovar tu estilo.',
-                  style: TextStyle(
-                    color: Color(0xFF6B7385),
-                    fontSize: 12,
-                  ),
+                  style: TextStyle(color: Color(0xFF6B7385), fontSize: 12),
                 ),
                 SizedBox(height: 20),
                 SelectorHora(),
                 SizedBox(height: 16),
-                Calendario(
-                  onFechaSeleccionada: _ignorarFechaSeleccionada,
-                ),
+                Calendario(onFechaSeleccionada: _ignorarFechaSeleccionada),
               ],
             ),
           ),

@@ -10,10 +10,15 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:componentes/main.dart';
 
 void main() {
-  testWidgets('Shows the appointment calendar', (WidgetTester tester) async {
+  testWidgets('Muestra la hora y el calendario de la cita', (
+    WidgetTester tester,
+  ) async {
     await tester.pumpWidget(const MyApp());
     expect(find.text('Tu próxima visita'), findsOneWidget);
+    // Componente hora.
+    expect(find.text('Selecciona la hora'), findsOneWidget);
+    // Componente calendario. No se comprueba la fecha concreta porque el
+    // calendario arranca en el día de hoy y el test dependería del día.
     expect(find.text('Selecciona la fecha'), findsOneWidget);
-    expect(find.text('Mar, 17 de noviembre'), findsOneWidget);
   });
 }
