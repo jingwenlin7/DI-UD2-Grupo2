@@ -1,0 +1,23 @@
+name: boton_grupal
+description: >-
+  Botón reutilizable para Flutter que guarda un payload dinámico en un archivo
+  JSON con nombre configurable y permite recuperarlo desde cualquier página.
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: ^3.6.0
+  flutter: ">=3.27.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  shared_preferences: ^2.5.6
+  web: ^1.1.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
