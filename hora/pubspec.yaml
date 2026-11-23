@@ -1,0 +1,20 @@
+name: hora
+description: "Selector de hora (hora y minutos) con formato 24 h / 12 h y callback al cambiar."
+version: 0.0.1
+publish_to: 'none'
+
+environment:
+  sdk: ^3.14.0
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  material_ui: ^1.11.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:

@@ -1,5 +1,6 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:calendario/calendario.dart';
+import 'package:hora/hora.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +20,8 @@ class MyApp extends StatelessWidget {
       ),
       home: Scaffold(
         body: SafeArea(
-          child: Padding(
+          // Scroll para que la pantalla no se desborde en móviles pequeños.
+          child: SingleChildScrollView(
             padding: EdgeInsets.fromLTRB(20, 32, 20, 20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -41,6 +43,8 @@ class MyApp extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 20),
+                SelectorHora(),
+                SizedBox(height: 16),
                 Calendario(
                   onFechaSeleccionada: _ignorarFechaSeleccionada,
                 ),
